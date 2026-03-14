@@ -16,7 +16,7 @@ const DashboardPage = () => {
   const [selectedSection, setSelectedSection] = useState(section || "");
 
   useEffect(() => {
-    let url = `http://localhost:8081/leecampus/dashboard`;
+    let url = `https://leecampus-backend.onrender.com/leecampus/dashboard`;
     if (year && course && department && section) {
       url += `/year/${year}/course/${course}/department/${department}/section/${section}`;
     } else if (year && course && department) {
@@ -117,7 +117,7 @@ const DashboardPage = () => {
         />
         <button
           onClick={() => {
-            axios.get(`http://localhost:8081/leecampus/search?keyword=${search}`)
+            axios.get(`https://leecampus-backend.onrender.com/leecampus/search?keyword=${search}`)
               .then(res => alert(`Rank: ${res.data.rank}`))
               .catch(() => alert("Student not found"));
           }}

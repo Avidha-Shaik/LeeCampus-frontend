@@ -14,7 +14,7 @@ const StatsPage = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    let url = "http://localhost:8081/leecampus/stats";
+    let url = "https://leecampus-backend.onrender.com/leecampus/stats";
     if (year) url += `/${year}`;
     if (course) url += `/${course}`;
     if (department) url += `/${department}`;

@@ -33,7 +33,7 @@ const RegisterPage = () => {
     setLoading(true);
     setError("");
     try {
-      await axios.post("http://localhost:8081/leecampus/register", form);
+      await axios.post("https://leecampus-backend.onrender.com/leecampus/register", form);
       navigate("/login");
     } catch {
       setError("Registration failed. Please check your details.");

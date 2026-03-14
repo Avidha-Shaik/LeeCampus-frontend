@@ -29,7 +29,7 @@ const SimpleDashboard = () => {
       return;
     }
 
-    let url = "http://localhost:8081/leecampus/dashboard";
+    let url = "https://leecampus-backend.onrender.com/leecampus/dashboard";
     if (filterType === "year" && filterValue)            url += `/year/${filterValue}`;
     else if (filterType === "department" && filterValue) url += `/department/${filterValue}`;
     else if (filterType === "course" && filterValue)     url += `/course/${filterValue}`;

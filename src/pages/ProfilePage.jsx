@@ -37,7 +37,7 @@ const ProfilePage = () => {
     }
 
     axios
-      .get(`http://localhost:8081/leecampus/leetcode-stats/${studentId}`, {
+      .get(`https://leecampus-backend.onrender.com/leecampus/leetcode-stats/${studentId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setData(res.data))

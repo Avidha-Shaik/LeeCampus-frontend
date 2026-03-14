@@ -12,7 +12,7 @@ const LoginPage = () => {
     setLoading(true);
     setError("");
     try {
-      const res = await axios.post("http://localhost:8081/leecampus/login", form);
+      const res = await axios.post("https://leecampus-backend.onrender.com/leecampus/login", form);
       localStorage.setItem("studentId", res.data.id);
       localStorage.setItem("name", res.data.name);
       navigate("/");
