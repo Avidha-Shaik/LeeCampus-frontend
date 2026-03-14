@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE = "http://localhost:8081/leecampus/admin";
+const BASE = "https://leecampus-backend.onrender.com/leecampus/admin";
 
 const authHeader = () => ({
   headers: {
@@ -28,7 +28,7 @@ export const adminGetStats = () =>
 
 export const adminRegisterFaculty = (data) =>
   axios.post(
-    "http://localhost:8081/leecampus/faculty/register",
+    "https://leecampus-backend.onrender.com/leecampus/faculty/register",
     data,
     authHeader()
   );

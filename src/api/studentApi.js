@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8081/leecampus";
+const BASE_URL = "https://leecampus-backend.onrender.com/leecampus";
 
 export const registerStudent = (data) =>
   axios.post(`${BASE_URL}/registerStudent`, data);

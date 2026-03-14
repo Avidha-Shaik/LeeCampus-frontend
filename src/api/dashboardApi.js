@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8081/leecampus/dashboard";
+const BASE_URL = "https://leecampus-backend.onrender.com/leecampus/dashboard";
 
 export const getOverall = (page = 0, size = 10) =>
   axios.get(`${BASE_URL}/overall?page=${page}&size=${size}`);
