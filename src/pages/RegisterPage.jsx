@@ -4,18 +4,43 @@ import { useNavigate, Link } from "react-router-dom";
 
 const FIELDS = [
   { key: "name", label: "Full Name", placeholder: "John Doe", type: "text" },
-  { key: "email", label: "Email", placeholder: "you@university.edu", type: "email" },
-  { key: "password", label: "Password", placeholder: "••••••••", type: "password" },
-  { key: "rollNumber", label: "Roll Number", placeholder: "21BCE1234", type: "text" },
-  { key: "leetcodeUsername", label: "LeetCode Username", placeholder: "johndoe_lc", type: "text" },
+  {
+    key: "email",
+    label: "Email",
+    placeholder: "you@university.edu",
+    type: "email",
+  },
+  {
+    key: "password",
+    label: "Password",
+    placeholder: "••••••••",
+    type: "password",
+  },
+  {
+    key: "rollNumber",
+    label: "Roll Number",
+    placeholder: "21BCE1234",
+    type: "text",
+  },
+  {
+    key: "leetcodeUsername",
+    label: "LeetCode Username",
+    placeholder: "johndoe_lc",
+    type: "text",
+  },
 ];
 
 const SELECT_FIELDS = [
   { key: "year", label: "Year", options: ["1", "2", "3", "4"] },
   { key: "course", label: "Course", options: ["BTech", "MTech", "MBA"] },
-  { key: "department", label: "Department", options: ["CSE", "ECE", "EEE", "MECH"] },
   {
-    key: "section", label: "Section",
+    key: "department",
+    label: "Department",
+    options: ["CSE", "ECE", "EEE", "MECH"],
+  },
+  {
+    key: "section",
+    label: "Section",
     options: Array.from({ length: 22 }, (_, i) => String.fromCharCode(65 + i)),
   },
 ];
@@ -23,8 +48,15 @@ const SELECT_FIELDS = [
 const RegisterPage = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
-    name: "", email: "", password: "", rollNumber: "",
-    leetcodeUsername: "", year: "", department: "", course: "", section: "",
+    name: "",
+    email: "",
+    password: "",
+    rollNumber: "",
+    leetcodeUsername: "",
+    year: "",
+    department: "",
+    course: "",
+    section: "",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -33,7 +65,10 @@ const RegisterPage = () => {
     setLoading(true);
     setError("");
     try {
-      await axios.post("https://leecampus-backend.onrender.com/leecampus/register", form);
+      await axios.post(
+        "https://leecampus-backend.onrender.com/leecampus/registerStudent",
+        form,
+      );
       navigate("/login");
     } catch {
       setError("Registration failed. Please check your details.");
@@ -44,16 +79,13 @@ const RegisterPage = () => {
 
   return (
     <div className="min-h-[calc(100vh-65px)] flex items-center justify-center px-4 py-12 fade-in">
-
       <div className="glass rounded-2xl p-10 w-full max-w-lg border border-white/8">
-
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold gradient-text">Create Account</h1>
           <p className="text-white/40 text-sm mt-1">Join LeeCampus today</p>
         </div>
 
         <div className="space-y-4">
-
           {FIELDS.map(({ key, label, placeholder, type }) => (
             <div key={key}>
               <label className="text-xs text-white/40 font-medium uppercase tracking-wider mb-1.5 block">
@@ -82,16 +114,16 @@ const RegisterPage = () => {
                 >
                   <option value="">Select {label}</option>
                   {options.map((o) => (
-                    <option key={o} value={o}>{o}</option>
+                    <option key={o} value={o}>
+                      {o}
+                    </option>
                   ))}
                 </select>
               </div>
             ))}
           </div>
 
-          {error && (
-            <p className="text-red-400 text-sm text-center">{error}</p>
-          )}
+          {error && <p className="text-red-400 text-sm text-center">{error}</p>}
 
           <button
             onClick={register}
@@ -107,7 +139,6 @@ const RegisterPage = () => {
               Sign in
             </Link>
           </p>
-
         </div>
       </div>
     </div>
