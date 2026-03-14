@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0a0a0f;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.1);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,212,255,0.3);
+}
+
+/* Glass card */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-hover {
+  transition: all 0.2s ease;
+}
+.glass-hover:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(0, 212, 255, 0.2);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #00d4ff, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow button */
+.btn-glow {
+  background: linear-gradient(135deg, #00d4ff22, #6366f122);
+  border: 1px solid rgba(0,212,255,0.3);
+  color: #00d4ff;
+  transition: all 0.2s ease;
+}
+.btn-glow:hover {
+  background: linear-gradient(135deg, #00d4ff33, #6366f133);
+  box-shadow: 0 0 20px rgba(0,212,255,0.2);
+}
+
+/* Rank medals */
+.rank-gold {
+  background: rgba(255,200,0,0.08);
+  border-color: rgba(255,200,0,0.25) !important;
+}
+.rank-silver {
+  background: rgba(180,180,180,0.08);
+  border-color: rgba(180,180,180,0.25) !important;
+}
+.rank-bronze {
+  background: rgba(180,100,40,0.08);
+  border-color: rgba(180,100,40,0.25) !important;
+}
+
+/* Page fade-in */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  animation: fadeInUp 0.4s ease both;
+}
+
+/* Input overrides */
+.input-glass {
+  background: rgba(255,255,255,0.04) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #fff !important;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.2s;
+}
+.input-glass:focus {
+  outline: none;
+  border-color: rgba(0,212,255,0.4) !important;
+  box-shadow: 0 0 0 2px rgba(0,212,255,0.08);
+}
+.input-glass::placeholder {
+  color: rgba(255,255,255,0.3);
+}
+
+/* Select overrides */
+.select-glass {
+  background: rgba(255,255,255,0.04) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #fff !important;
+}
+.select-glass:focus {
+  outline: none;
+  border-color: rgba(0,212,255,0.4) !important;
+}
+.select-glass option {
+  background: #111118;
+  color: #fff;
+}
+
+
+/* Staggered row entrance */
+@keyframes rowSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* One-shot pulse on the YOU row after jump */
+@keyframes pulseCyan {
+  0%   { box-shadow: 0 0 0px rgba(0, 212, 255, 0); }
+  40%  { box-shadow: 0 0 28px rgba(0, 212, 255, 0.35); }
+  100% { box-shadow: 0 0 0px rgba(0, 212, 255, 0); }
+}
+
+.animate-pulse-once {
+  animation: pulseCyan 1.2s ease forwards !important;
+}
